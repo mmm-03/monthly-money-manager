@@ -10,6 +10,15 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'expenses',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../../mmm-pages/expenses/expenses.module').then((m) => m.ExpensesModule),
+          }
+        ]
+      },
+      {
         path: 'schedule',
         children: [
           {
@@ -57,11 +66,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: '',
-        redirectTo: '/app/tabs/schedule',
-        pathMatch: 'full'
-      }
+      {path: '', redirectTo: '/app/tabs/expenses', pathMatch: 'full'},
     ]
   }
 ];

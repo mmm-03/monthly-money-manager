@@ -1,0 +1,67 @@
+img.avatar-img {
+  max-width: 140px;
+  border-radius: 50%;
+}
+
+
+.filter-toolbar {
+  --min-height: 35px !important;
+  border-top: 1px solid #ebebeb;
+  position: relative;
+
+  &.close {
+    border-top: 0 solid transparent;
+  }
+
+  .filter-segment {
+    --min-height: 34px !important;
+
+    .filter-segment-button {
+      min-height: 28px;
+    }
+  }
+}
+
+$categories: (
+  ionic: var(--ion-color-primary),
+  settled: #ac282b,
+  not-settled: #69bb7b,
+);
+
+@each $track, $value in map-remove($categories) {
+  ion-item[track='#{$track}'] ion-label {
+    border-left: 2px solid $value;
+    padding-left: 10px;
+  }
+}
+
+
+.more-details-back-drop {
+  position: fixed;
+  width: calc(100vw - 0px);
+  height: calc(100vh - 90px);
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease-out;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+
+  .more-details {
+    position: absolute;
+    bottom: 0;
+    height: 60%;
+    border-radius: 0;
+    transition: bottom 0.5s ease-in-out;
+  }
+
+  &.close {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    .more-details {
+      bottom: -100%;
+    }
+  }
+}

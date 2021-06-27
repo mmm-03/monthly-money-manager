@@ -1,42 +1,47 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { CheckTutorial } from "./providers/check-tutorial.service";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CheckTutorial } from './providers/check-tutorial.service';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "/tutorial",
-    pathMatch: "full",
+    path: '',
+    redirectTo: '/tutorial',
+    pathMatch: 'full',
   },
   {
-    path: "account",
+    path: 'account',
     loadChildren: () =>
-      import("./pages/account/account.module").then((m) => m.AccountModule),
+      import('./pages/account/account.module').then((m) => m.AccountModule),
   },
   {
-    path: "support",
+    path: 'expenses',
     loadChildren: () =>
-      import("./pages/support/support.module").then((m) => m.SupportModule),
+      import('./mmm-pages/expenses/expenses.module').then((m) => m.ExpensesModule),
   },
   {
-    path: "login",
+    path: 'support',
     loadChildren: () =>
-      import("./pages/login/login.module").then((m) => m.LoginModule),
+      import('./pages/support/support.module').then((m) => m.SupportModule),
   },
   {
-    path: "signup",
+    path: 'login',
     loadChildren: () =>
-      import("./pages/signup/signup.module").then((m) => m.SignUpModule),
+      import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: "app",
+    path: 'signup',
     loadChildren: () =>
-      import("./pages/tabs-page/tabs-page.module").then((m) => m.TabsModule),
+      import('./pages/signup/signup.module').then((m) => m.SignUpModule),
   },
   {
-    path: "tutorial",
+    path: 'app',
     loadChildren: () =>
-      import("./pages/tutorial/tutorial.module").then((m) => m.TutorialModule),
+      import('./pages/tabs-page/tabs-page.module').then((m) => m.TabsModule),
+  },
+  {
+    path: 'tutorial',
+    loadChildren: () =>
+      import('./pages/tutorial/tutorial.module').then((m) => m.TutorialModule),
     canLoad: [CheckTutorial],
   },
 ];
@@ -45,7 +50,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       useHash: true,
-      relativeLinkResolution: "legacy",
+      relativeLinkResolution: 'legacy',
     }),
   ],
   exports: [RouterModule],
