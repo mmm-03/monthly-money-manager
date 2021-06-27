@@ -69,7 +69,7 @@
       "icons": [{ "src": "/icons/logo192.png", "sizes": "192x192" }]
     }
   ],
-  "screenshots" : [
+  "screenshots": [
     {
       "src": "screenshot1.webp",
       "sizes": "1280x720",
